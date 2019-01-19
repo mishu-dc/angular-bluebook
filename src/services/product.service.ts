@@ -11,6 +11,6 @@ export class ProductService extends DataService{
 
   public constructor(http:Http, cookieService:CookieService) { 
     let url = environment.domain + '/api/products';
-    super(http, url, cookieService);
+    super(http, cookieService, url);
   }
 }

@@ -1,10 +1,9 @@
-import { AppConstants } from './../common/constants';
-import { CookieService } from 'ngx-cookie-service';
-import { HttpErrorHandler } from './http-error-handler';
+
 import { Http, Headers } from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
-
-
+import { HttpErrorHandler } from './http-error-handler';
+import { AppConstants } from './../common/constants';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class DataService extends HttpErrorHandler {
 
-    constructor(public http:Http, public url:string, public cookieService:CookieService) {
+    constructor(public http:Http, public cookieService:CookieService, public url:string) {
 		    super();
     }
 

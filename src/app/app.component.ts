@@ -23,7 +23,7 @@ export class AppComponent {
               private fieldforceService: FieldforceService){
     let user = new User();
     user.username="mishu_dc@yahoo.com";
-    user.password="Aa123456";
+    user.password="Aa123456@";
     userAccountService.logIn(user)
       .subscribe(
         ()=>{

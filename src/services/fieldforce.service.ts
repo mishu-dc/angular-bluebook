@@ -11,6 +11,6 @@ export class FieldforceService extends DataService{
 
   public constructor(http:Http, cookieService:CookieService) { 
     let url = environment.domain + '/api/fieldforces';
-    super(http, url, cookieService);
+    super(http, cookieService, url);
   }
 }

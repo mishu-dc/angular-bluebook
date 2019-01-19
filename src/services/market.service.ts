@@ -11,6 +11,6 @@ export class MarketService extends DataService{
 
   public constructor(http:Http, cookieService:CookieService) { 
     let url = environment.domain + '/api/markets';
-    super(http, url, cookieService);
+    super(http, cookieService, url);
   }
 }
