@@ -1,5 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
-    background-color: aqua;
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
+
+.com-container {
+    margin-top: 50px;
+}
+
+.navbar{
+    flex-direction: row !important;
+    padding: 0.20rem 1rem !important;
+}
+
+.navbar a{
+    padding-right: 30px;
+}
+
+.navbar-right li a{
+    color: #fff;
+}
+
+.dropdown-menu {
+   border-radius: 0.0rem !important;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" routerLink="/">Navbar</a>
+  <a class="navbar-brand" routerLink="/">Blue Book</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,22 +9,36 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>      
-      <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="dropdown01" ngbDropdownToggle>Basic</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu> 
+      <li class="nav-item dropdown" ngbDropdown [hidden]="!isAuthenticated()">
+        <a class="nav-link dropdown-toggle" id="dropdown-basic" ngbDropdownToggle>Basic</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown-basic" ngbDropdownMenu> 
           <a class="dropdown-item" routerLink="/distributor">Distributor(s)</a>
-          <a class="dropdown-item" routerLink="/market">Market(s)</a>
+          <a class="dropdown-item" routerLink="/market">Markets(s)</a>
+          <div class="divider"></div>
           <a class="dropdown-item" routerLink="/brand">Brand(s)</a>
           <a class="dropdown-item" routerLink="/product">Product(s)</a>
-          <a class="dropdown-item" routerLink="/fieldforce">FieldForce(s)</a>
+          <div class="divider"></div>
+          <a class="dropdown-item" routerLink="/fieldforce">Field Force(s)</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" routerLink="/about">About</a>
-      </li>      
-      <li class="nav-item">
+      </li> 
+      <li class="nav-item active">
         <a class="nav-link" routerLink="/contact">Contact</a>
-      </li>      
+      </li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated()">
+        <li>
+            <a routerLink="#" title="Manage">{{ getUserName() }}</a>
+        </li>
+        <li><a routerLink="/logoff">Log off</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" *ngIf="!isAuthenticated()">
+      <li>
+          <a routerLink="/register" title="Manage">Register</a>
+      </li>
+      <li><a routerLink="/login">Log In</a></li>
     </ul>
   </div>
 </nav>

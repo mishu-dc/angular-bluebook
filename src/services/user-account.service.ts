@@ -19,6 +19,7 @@ export class UserAccountService extends HttpErrorHandler {
     logIn(user: User){
       let url = environment.domain+ "/token";
       let body = "grant_type=password&username=" + user.username + "&password=" + user.password;
+      this.cookieService.deleteAll();
 
       return this.http.post(url, body)
         .pipe(
