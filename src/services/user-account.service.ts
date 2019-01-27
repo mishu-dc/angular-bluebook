@@ -44,4 +44,15 @@ export class UserAccountService extends HttpErrorHandler {
     logout(){
         this.cookieService.deleteAll();
     }
+
+    isAuthenticated(){
+        if(this.cookieService.get(AppConstants.USER_NAME)){
+            return true;
+        }
+        return false;
+    }
+
+    getUserName(){
+        return this.cookieService.get(AppConstants.USER_NAME);
+    }
 }

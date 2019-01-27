@@ -1,4 +1,3 @@
-import { UserManagmentService } from './../helpers/user-managment.service';
 import { MarketService } from './../services/market.service';
 import { FieldforceService } from './../services/fieldforce.service';
 import { DistributorService } from './../services/distributor.service';
@@ -80,7 +79,6 @@ import { FooterComponent } from './footer/footer.component';
     FieldforceService,
     MarketService,
     ProductService,
-    UserManagmentService,
     {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAccountService } from 'src/services/user-account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'logoff',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logoff.component.css']
 })
 export class LogoffComponent implements OnInit {
+    constructor(private accountService:UserAccountService, public router: Router){
+        this.accountService.logout();
+    }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit(): void {
+        this.router.navigate(['/home']);
+    }
 }

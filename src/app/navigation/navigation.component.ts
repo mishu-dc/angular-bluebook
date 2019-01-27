@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserManagmentService } from 'src/helpers/user-managment.service';
+import { UserAccountService } from 'src/services/user-account.service';
 
 @Component({
   selector: 'navigation',
@@ -7,17 +8,17 @@ import { UserManagmentService } from 'src/helpers/user-managment.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent{
-    constructor(public userManagementService: UserManagmentService){
+    constructor(public accountService: UserAccountService){
       
     }
 
     isAuthenticated(){
-        return this.userManagementService.isAuthenticated();
+        return this.accountService.isAuthenticated();
     }
 
     getUserName(){
-        if(this.userManagementService.getUserName()){
-            return "Hello " + this.userManagementService.getUserName() + "!";  
+        if(this.accountService.getUserName()){
+            return "Hello " + this.accountService.getUserName() + "!";  
         }
         return "Register";
     }
