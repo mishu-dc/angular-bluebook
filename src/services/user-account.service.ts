@@ -37,7 +37,7 @@ export class UserAccountService extends HttpErrorHandler {
                    this.cookieService.set(AppConstants.USER_NAME,token.userName, expiredDate); 
                 }
             ),
-            catchError(this.handleError)
+            catchError(this.handleError)            
         );
     }
 
