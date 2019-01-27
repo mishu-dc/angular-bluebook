@@ -28,6 +28,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoffComponent } from './logoff/logoff.component';
 import { RegisterComponent } from './register/register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     LoginComponent,
     LogoffComponent,
     RegisterComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
