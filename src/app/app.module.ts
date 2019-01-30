@@ -29,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingBarComponent } from './loading-bar/loading-bar.component';
+import { DataGridComponent } from './data-grid/data-grid.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
     RegisterComponent,
     ChangePasswordComponent,
     FooterComponent,
-    LoadingBarComponent
+    LoadingBarComponent,
+    DataGridComponent
   ],
   imports: [
     BrowserModule,

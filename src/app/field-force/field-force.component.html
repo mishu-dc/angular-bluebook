@@ -1,3 +1,11 @@
-<p>
-  field-force works!
-</p>
+
+<data-grid 
+    [headers]="['Id','Code','Name','Distributors','Market Hierarchy']"
+    [columns]="['id','code','name','distributor', 'marketHierarchy']"
+    [column-widths]="[100, 200, 300, 200, 200]"
+    [column-alignment]="['left','left','left','left','left']"
+    [total]="500"
+    [pages]="[10,20,50,100]"
+    [current-page]="1"
+    >
+</data-grid>

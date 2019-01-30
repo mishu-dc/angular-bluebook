@@ -1,0 +1,10 @@
+.fixed-height{
+    display: block;
+    overflow-y: auto;
+    border: thin solid #e0d8d8
+}
+
+th {
+    background-color:#f5f5f5;
+    vertical-align:middle;
+}

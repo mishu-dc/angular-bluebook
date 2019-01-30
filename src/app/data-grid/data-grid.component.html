@@ -1,0 +1,21 @@
+<div class="show-grid fixed-height row" [style.height.px]="height">
+  <table class="table table-sm table-bordered">
+      <thead>
+          <tr>
+              <th scope="col" *ngFor="let header of headers"> {{ header }} </th>
+          </tr>
+      </thead>
+      <tbody >
+          <tr *ngFor="let record of records">
+              <td scope="row" *ngFor="let column of columns"> {{ record[column] }} </td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td [attr.colspan]="footerColSpan">
+
+              </td>
+          </tr>
+      </tfoot>
+  </table>
+</div>
