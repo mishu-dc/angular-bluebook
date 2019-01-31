@@ -1,11 +1,11 @@
-<div class="show-grid fixed-height row" [style.height.px]="height">
-  <table class="table table-sm table-bordered">
+<div class="show-grid row">
+  <table class="table table-sm table-bordered" >
       <thead>
           <tr>
               <th scope="col" *ngFor="let header of headers"> {{ header }} </th>
           </tr>
       </thead>
-      <tbody >
+      <tbody>
           <tr *ngFor="let record of records">
               <td scope="row" *ngFor="let column of columns"> {{ record[column] }} </td>
           </tr>
@@ -13,7 +13,37 @@
       <tfoot>
           <tr>
               <td [attr.colspan]="footerColSpan">
+                    <div class="row footer">
+                        <button type="button" class="btn btn-outline-primary first" (click)="moveFirst()" [disabled]="currentPage==1">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
 
+                        <button type="button" class="btn btn-outline-primary" (click)="previous()" [disabled]="currentPage==1">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+
+                        <label><b>Page</b></label>
+                        <input type="text" [ngModel] [value]="currentPage"(change)="moveTo($event.target.value)">
+                        <label><b>of {{pageCount}}</b></label>
+
+                        <button type="button" class="btn btn-outline-primary" (click)="next()" [disabled]="currentPage==pageCount">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary" (click)="moveLast()" [disabled]="currentPage==pageCount">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary" (click)="refreshList()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+
+                        <select name="pageSizes" (change)="pageSizeChanged($event.target.value)">
+                            <option *ngFor="let page of pages" [selected]="page==selectedPageSize">{{page}}</option>
+                        </select>
+                        
+                        <label class="last"><b>Displaying records {{from}}-{{to}} of {{totalRecords}}</b></label>
+                    </div>
               </td>
           </tr>
       </tfoot>
