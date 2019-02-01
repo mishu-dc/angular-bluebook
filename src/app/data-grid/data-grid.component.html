@@ -2,12 +2,19 @@
   <table class="table table-sm table-bordered" >
       <thead>
           <tr>
-              <th scope="col" *ngFor="let header of headers"> {{ header }} </th>
+              <th scope="col" *ngFor="let header of headers;index as i;" 
+                    [style.text-align]="columnAlignment && columnAlignment[i]?columnAlignment[i]:left"
+                    [width]="columnWidths && columnWidths[i]?columnWidths[i]:'auto'">
+                    {{ header }} 
+              </th>
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let record of records">
-              <td scope="row" *ngFor="let column of columns"> {{ record[column] }} </td>
+              <td scope="row" *ngFor="let column of columns;index as i;"
+                  [style.text-align]="columnAlignment && columnAlignment[i]?columnAlignment[i]:left"> 
+                  {{ record[column] }} 
+              </td>
           </tr>
       </tbody>
       <tfoot>

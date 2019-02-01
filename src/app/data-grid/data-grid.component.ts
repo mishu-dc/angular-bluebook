@@ -42,6 +42,7 @@ export class DataGridComponent implements OnInit {
         this.pageCount = Math.ceil(this.totalRecords / this.selectedPageSize);
         this.from = (this.currentPage-1) * this.selectedPageSize + 1;
         this.to = this.from + this.selectedPageSize - 1;
+        this.to = this.to>this.totalRecords? this.totalRecords: this.to;
     }
 
     private getEventArg(){
@@ -77,7 +78,7 @@ export class DataGridComponent implements OnInit {
     }
 
     moveLast(){
-        if(this.currentPage!=this.pageCount){
+        if(this.currentPage!=this.pageCount && this.pageCount>0){
             this.currentPage = this.pageCount;
             this.pageChanged.emit(this.getEventArg());
         }

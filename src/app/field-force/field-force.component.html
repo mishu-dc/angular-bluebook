@@ -1,14 +1,33 @@
-
 <div>
     <h2>Field Forces</h2>
+    <div class="row ff-filter">
+        <div>
+            <input class="form-control" type="text" placeholder="Code" width="200" [(ngModel)]="code">  
+        </div>
+        <div>
+            <input class="form-control" type="text" placeholder="Name" width="200" [(ngModel)]="name">  
+        </div>
+        <div>
+            <select class="form-control" [(ngModel)]="distributorId">
+                <option value="-1">Select a distributor</option>
+                <option *ngFor="let distributor of distributors" [value]="distributor.id">{{ distributor.name }}</option>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="search()">Search</button>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="clearAll()">Clear</button>
+        </div>
+    </div>
     <data-grid 
         [headers]="['Id','Code','Name','Distributors','Market Hierarchy']"
         [columns]="['id','code','name','distributorNames', 'marketHierarchyName']"
-        [column-widths]="[100, 200, 300, 200, 200]"
-        [column-alignment]="['left','left','left','left','left']"
+        [column-widths]="[80, 100, 300, 200, 200]"
+        [column-alignment]="['center','left','left','left','left']"
         [pages]="[10,20,50,100]"
         [selected-page-size]="10"
-        [current-page]="5"
+        [current-page]="1"
         (page-changed)="pageChanged($event)"
         >
     </data-grid>
