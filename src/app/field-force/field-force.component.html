@@ -1,6 +1,6 @@
 <div>
     <h2>Field Forces</h2>
-    <div class="row ff-filter">
+    <div class="row data-filter">
         <div>
             <input class="form-control" type="text" placeholder="Code" width="200" [(ngModel)]="code">  
         </div>
@@ -17,7 +17,7 @@
             <button class="btn btn-primary" (click)="search()">Search</button>
         </div>
         <div>
-            <button class="btn btn-primary" (click)="clearAll()">Clear</button>
+            <button class="btn btn-outline-primary" (click)="clearAll()">Clear</button>
         </div>
     </div>
     <data-grid 
