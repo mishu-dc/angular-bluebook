@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  domain:'http://webapi.faisalahmed.us'
+  domain:'https://webapi.faisalahmed.us'
 };
