@@ -14,6 +14,8 @@ export class DistributorComponent {
     public code:string="";
     public name:string="";
 
+    public showLoading:boolean = true;
+
     @ViewChild(DataGridComponent) dataGrid: DataGridComponent;
 
     constructor(public distributorService:DistributorService){        
@@ -24,14 +26,17 @@ export class DistributorComponent {
     }
 
     getFieldforceData(currentPage:number, pageSize:number, code?:string, name?:string, distributorId?:number){
+        this.showLoading = true;
         this.distributorService.getList(currentPage, pageSize, code, name).subscribe(
             (response)=>{
                 this.dataGrid.totalRecords = response.total;
                 this.dataGrid.records = response.items;
                 this.dataGrid.reInitialize();
+                this.showLoading = false;
             },
             (error:BadInput)=>{
                 this.notification = error.originalError;
+                this.showLoading = false;
             });
     }
 

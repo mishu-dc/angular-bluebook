@@ -20,6 +20,8 @@ export class FieldForceComponent implements OnInit{
     public name:string="";
     public distributorId:number=-1;
 
+    public showLoading:boolean=false;
+
     @ViewChild(DataGridComponent) dataGrid: DataGridComponent;
 
     constructor(public fieldForceService:FieldforceService, public distributorService:DistributorService){
@@ -50,14 +52,17 @@ export class FieldForceComponent implements OnInit{
     }
 
     getFieldforceData(currentPage:number, pageSize:number, code?:string, name?:string, distributorId?:number){
+        this.showLoading = true;
         this.fieldForceService.getListByDistributor(currentPage, pageSize, code, name, distributorId).subscribe(
             (response)=>{
                 this.dataGrid.totalRecords = response.total;
                 this.dataGrid.records = this.convertToFieldforces(response.items);
                 this.dataGrid.reInitialize();
+                this.showLoading = false;
             },
             (error:BadInput)=>{
                 this.notification = error.originalError;
+                this.showLoading = false;
             });
     }
 

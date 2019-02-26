@@ -19,6 +19,7 @@ export class ProductComponent {
     public code:string="";
     public name:string="";
     public brandId:number=-1;
+    public showLoading:boolean=false;
 
     @ViewChild(DataGridComponent) dataGrid: DataGridComponent;
 
@@ -51,14 +52,17 @@ export class ProductComponent {
     }
 
     getFieldforceData(currentPage:number, pageSize:number, code?:string, name?:string, brandId?:number){
+        this.showLoading = true;
         this.productService.getListByBrand(currentPage, pageSize, code, name, brandId).subscribe(
             (response)=>{
                 this.dataGrid.totalRecords = response.total;
                 this.dataGrid.records = this.convertResponseToProducts(response.items);
                 this.dataGrid.reInitialize();
+                this.showLoading = false;
             },
             (error:BadInput)=>{
                 this.notification = error.originalError;
+                this.showLoading = false;
             });
     }
 

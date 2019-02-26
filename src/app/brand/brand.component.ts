@@ -13,6 +13,7 @@ export class BrandComponent {
   public notification:string="";
   public code:string="";
   public name:string="";
+  public showLoading:boolean=false;
 
   @ViewChild(DataGridComponent) dataGrid: DataGridComponent;
 
@@ -24,14 +25,17 @@ export class BrandComponent {
   }
 
   getFieldforceData(currentPage:number, pageSize:number, code?:string, name?:string, distributorId?:number){
+      this.showLoading = true;
       this.brandService.getList(currentPage, pageSize, code, name).subscribe(
           (response)=>{
               this.dataGrid.totalRecords = response.total;
               this.dataGrid.records = response.items;
               this.dataGrid.reInitialize();
+              this.showLoading = false;
           },
           (error:BadInput)=>{
               this.notification = error.originalError;
+              this.showLoading = false;
           });
   }
 
